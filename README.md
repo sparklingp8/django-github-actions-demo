@@ -1,0 +1,1 @@
+[![Multiple Jobs Demo](https://github.com/sparklingp8/django-github-actions-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/sparklingp8/django-github-actions-demo/actions/workflows/ci.yml)
