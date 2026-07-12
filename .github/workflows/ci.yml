@@ -1,4 +1,4 @@
-name: Multiple Jobs Demo
+name: Job Dependency Demo
 
 on:
   push:
@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: First Job
-        run: echo "Hello from First Job"
+      - run: |
+          echo "Running First Job"
+          sleep 10
 
   second-job:
+    needs: first-job
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Second Job
-        run: echo "Hello from Second Job "
-      - name : step 2 job 2
-        run : echo "step 2 job 2 running"
+      - run: echo "Running Second Job"
