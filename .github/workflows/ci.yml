@@ -18,4 +18,6 @@ jobs:
 
     steps:
       - name: Second Job
-        run: echo "Hello from Second Job"
+        run: echo "Hello from Second Job "
+      - name : step 2 job 2
+        run : echo "step 2 job 2 running"
