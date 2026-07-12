@@ -17,10 +17,15 @@ jobs:
         - uses: actions/setup-python@v5
           with:
             python-version: "3.12"
-        - run: python --version
-        - run: which python
+        - name: check python version
+          run: python --version
+        - name: check where python
+          run: which python
         - run: which pip
-        - run: pip install -r requirements.txt
-        - run: pip list 
-        - run: python manage.py check
+        - name: Install Dependencies
+          run: pip install -r requirements.txt
+        - name: Django Check
+          run: python manage.py check
+        - name: Run Tests
+          run: python manage.py test
         
