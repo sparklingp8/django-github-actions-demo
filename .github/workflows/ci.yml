@@ -12,11 +12,14 @@ on:
 jobs:
   python-job:
     runs-on: ubuntu-latest
-
     steps:
-    #   - uses: actions/checkout@v4: 
+        - uses: actions/checkout@v4 
         - uses: actions/setup-python@v5
           with:
             python-version: "3.12"
         - run: python --version
         - run: which python
+        - run: which pip
+        - run: pip install -r requirements.txt
+        - run: pip list 
+        
