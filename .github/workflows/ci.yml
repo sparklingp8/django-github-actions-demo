@@ -22,5 +22,5 @@ jobs:
         - run: which pip
         - run: pip install -r requirements.txt
         - run: pip list 
-        - run: pytohn manage.py check
+        - run: python manage.py check
         
