@@ -23,7 +23,9 @@ jobs:
           run: which python
         - run: which pip
         - name: Install Dependencies
-          run: pip install -r requirements.txt
+          run: |
+            python -m pip install --upgrade pip 
+            pip install -r requirements.txt
         - name: code format check
           run: ruff check .
         - name: Django Check
