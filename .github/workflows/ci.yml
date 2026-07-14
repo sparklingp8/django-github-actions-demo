@@ -1,40 +1,16 @@
-name: Environment Variable Demo
+name: Repository Variables Demo
 
 on:
   workflow_dispatch:
 
-env:
-  APP_NAME: workflow-app
-
 jobs:
-  env-demo:
+  repository-vars-demo:
+
     runs-on: ubuntu-latest
 
-    env:
-      APP_NAME: job-app
-
     steps:
-      - name: Step 1 - Print Job Variable
-        run: |
-          echo "APP_NAME = $APP_NAME"
 
-      - name: Step 2 - Step Level Override
-        env:
-          APP_NAME: step-app
+      - name: Print Repository Variables
         run: |
-          echo "APP_NAME = $APP_NAME"
-
-      - name: Step 3 - Print Again
-        run: |
-          echo "APP_NAME = $APP_NAME"
-
-      - name: Step 4 - Change Shell Variable
-        run: |
-          APP_NAME=temporary-shell
-          echo "Inside this step = $APP_NAME"
-
-      - name: Step 5 - Check Again
-        run: |
-          echo "APP_NAME = $APP_NAME"
-       
-        
+          echo "App Name = ${{ vars.APP_NAME }}"
+          
