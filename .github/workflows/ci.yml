@@ -1,26 +1,40 @@
-name: Django Project Setup
+name: Environment Variable Demo
 
 on:
-  push:
-    branches:
-      - feature/vars-demo
-
-  pull_request:
-
   workflow_dispatch:
 
+env:
+  APP_NAME: workflow-app
+
 jobs:
-  django-app-vars-job:
-    env:
-      APP_NAME: vars-demoapp
+  env-demo:
     runs-on: ubuntu-latest
+
+    env:
+      APP_NAME: job-app
+
     steps:
-      - name: echo gloabl name
-        run: echo $APP_NAME 
-      - name: over riding app name
-        run: APP_NAME=new_name_1
-      - name: trying new name again
-        run: echo is name changed $APP_NAME
-      
+      - name: Step 1 - Print Job Variable
+        run: |
+          echo "APP_NAME = $APP_NAME"
+
+      - name: Step 2 - Step Level Override
+        env:
+          APP_NAME: step-app
+        run: |
+          echo "APP_NAME = $APP_NAME"
+
+      - name: Step 3 - Print Again
+        run: |
+          echo "APP_NAME = $APP_NAME"
+
+      - name: Step 4 - Change Shell Variable
+        run: |
+          APP_NAME=temporary-shell
+          echo "Inside this step = $APP_NAME"
+
+      - name: Step 5 - Check Again
+        run: |
+          echo "APP_NAME = $APP_NAME"
        
         
