@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: echo gloabl name
         run: echo $APP_NAME 
+      - name: over riding app name
+        run: APP_NAME=new_name_1
+      - name: trying new name again
+        run: echo is name changed $APP_NAME
       
        
         
