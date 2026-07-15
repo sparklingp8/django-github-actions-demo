@@ -1,6 +1,12 @@
-name: Repository Variables Demo
+name: feature branch job
 
 on:
+  push:
+    branches:
+      - feature/*
+
+  pull_request:
+
   workflow_dispatch:
 
 jobs:
@@ -8,9 +14,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      APP_NAME: ${{ vars.APP_NAME }}
+      API_KEY: ${{ secrets.API_KEY }}
+
+
     steps:
 
       - name: Print Repository Variables
         run: |
-          echo "App Name = ${{ vars.APP_NAME }}"
+          echo "App Name = $APP_NAME"
           
+      - name: Print Secret
+        run: |
+          echo "API_KEY = $API_KEY"
